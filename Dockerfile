@@ -7,7 +7,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /Coursphere
 
 # Install dependencies based on the preferred package manager
-COPY --chown=Coursphere:node package*.json ./
+COPY package*.json ./
 RUN \
     if [ -f yarn.lock ]; then yarn --frozen-lockfile; \
     elif [ -f package-lock.json ]; then npm ci; \
