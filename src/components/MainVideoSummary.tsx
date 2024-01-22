@@ -1,12 +1,12 @@
-import { Chapter, Unit } from "@prisma/client"
-import React from "react"
+import { Chapter, Unit } from "@prisma/client";
+import React from "react";
 
 type Props = {
-  chapter: Chapter
-  unit: Unit
-  unitIndex: number
-  chapterIndex: number
-}
+  chapter: Chapter;
+  unit: Unit;
+  unitIndex: number;
+  chapterIndex: number;
+};
 
 const MainVideoSummary = ({
   unit,
@@ -31,7 +31,7 @@ const MainVideoSummary = ({
         <p className="mt-2 text-secondary-foreground/80">{chapter.summary}</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default MainVideoSummary
+export default MainVideoSummary;

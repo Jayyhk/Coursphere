@@ -1,21 +1,21 @@
-'use client'
-import React from 'react'
-import { Button } from "./ui/button"
-import { signIn } from "next-auth/react"
+"use client";
+import React from "react";
+import { Button } from "./ui/button";
+import { signIn } from "next-auth/react";
 
-type Props = {}
+type Props = {};
 
 const SignInButton = (props: Props) => {
   return (
-    <Button 
-        variant='ghost' 
-        onClick={() => {
-            signIn('google')
-        }}
+    <Button
+      variant="ghost"
+      onClick={() => {
+        signIn("google");
+      }}
     >
-        Sign In
+      Sign In
     </Button>
-  )
-}
+  );
+};
 
-export default SignInButton
+export default SignInButton;

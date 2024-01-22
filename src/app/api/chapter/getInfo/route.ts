@@ -74,7 +74,7 @@ export async function POST(req: Request, res: Response) {
         summary: summary,
       },
     });
-    
+
     return NextResponse.json({ success: true });
   } catch (error) {
     console.error((error as any).response.data);

@@ -1,13 +1,13 @@
 import { getAuthSession } from "@/lib/auth";
-import TypewriterComponent from '@/components/Typewriter'
-import React from 'react';
-import NotGetStartedButton from '@/components/NotGetStartedButton'
-import GetStartedButton from '@/components/GetStartedButton'
+import TypewriterComponent from "@/components/Typewriter";
+import React from "react";
+import NotGetStartedButton from "@/components/NotGetStartedButton";
+import GetStartedButton from "@/components/GetStartedButton";
 
-type Props = {}
+type Props = {};
 
 const home = async (props: Props) => {
-  const session = await getAuthSession()
+  const session = await getAuthSession();
   return (
     <div className="h-full">
       <div className="text:black dark:text-white font-bold py-36 text-center space-y-5">
@@ -21,16 +21,16 @@ const home = async (props: Props) => {
         <div className="text-sm md:text-xl font-light text-zinc-400">
           Create course content 10x faster using AI.
         </div>
-          <div>
-            {session?.user && <NotGetStartedButton />}
-            {!session?.user && <GetStartedButton />}
-          </div>
+        <div>
+          {session?.user && <NotGetStartedButton />}
+          {!session?.user && <GetStartedButton />}
+        </div>
         <div className="text-zinc-400 text-xs md:text-sm font-normal">
           No credit card required.
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default home
+export default home;

@@ -1,37 +1,37 @@
-"use client"
-import { Chapter, Course, Unit } from "@prisma/client"
-import React from "react"
-import ChapterCard, { ChapterCardHandler } from "./ChapterCard"
-import { Separator } from "./ui/separator"
-import Link from "next/link"
-import { Button, buttonVariants } from "./ui/button"
-import { ChevronLeft, ChevronRight } from "lucide-react"
+"use client";
+import { Chapter, Course, Unit } from "@prisma/client";
+import React from "react";
+import ChapterCard, { ChapterCardHandler } from "./ChapterCard";
+import { Separator } from "./ui/separator";
+import Link from "next/link";
+import { Button, buttonVariants } from "./ui/button";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type Props = {
   course: Course & {
     units: (Unit & {
-      chapters: Chapter[]
-    })[]
-  }
-}
+      chapters: Chapter[];
+    })[];
+  };
+};
 
 const ConfirmChapters = ({ course }: Props) => {
-  const [loading, setLoading] = React.useState(false)
-  const chapterRefs: Record<string, React.RefObject<ChapterCardHandler>> = {}
+  const [loading, setLoading] = React.useState(false);
+  const chapterRefs: Record<string, React.RefObject<ChapterCardHandler>> = {};
   course.units.forEach((unit) => {
     unit.chapters.forEach((chapter) => {
       // eslint-disable-next-line react-hooks/rules-of-hooks
-      chapterRefs[chapter.id] = React.useRef(null)
-    })
-  })
+      chapterRefs[chapter.id] = React.useRef(null);
+    });
+  });
   const [completedChapters, setCompletedChapters] = React.useState<Set<String>>(
     new Set()
-  )
+  );
   const totalChaptersCount = React.useMemo(() => {
     return course.units.reduce((acc, unit) => {
-      return acc + unit.chapters.length
-    }, 0)
-  }, [course.units])
+      return acc + unit.chapters.length;
+    }, 0);
+  }, [course.units]);
 
   return (
     <div className="w-full mt-4">
@@ -42,7 +42,7 @@ const ConfirmChapters = ({ course }: Props) => {
               Unit {unitIndex + 1}
             </h2>
             <h3 className="text-2xl font-bold">{unit.name}</h3>
-            <div className="mt-3" >
+            <div className="mt-3">
               {unit.chapters.map((chapter, chapterIndex) => {
                 return (
                   <ChapterCard
@@ -53,11 +53,11 @@ const ConfirmChapters = ({ course }: Props) => {
                     chapter={chapter}
                     chapterIndex={chapterIndex}
                   />
-                )
+                );
               })}
             </div>
           </div>
-        )
+        );
       })}
       <div className="flex items-center justify-center mt-4">
         <Separator className="flex-[1] dark:bg-zinc-700" />
@@ -68,10 +68,11 @@ const ConfirmChapters = ({ course }: Props) => {
               className: "bg-slate-100 dark:bg-zinc-800",
             })}
           >
-            <ChevronLeft className="w-4 h-4 mr-2 text-black dark:text-white" strokeWidth={4} />
-              <div className="text-black dark:text-white">
-                Back
-              </div>
+            <ChevronLeft
+              className="w-4 h-4 mr-2 text-black dark:text-white"
+              strokeWidth={4}
+            />
+            <div className="text-black dark:text-white">Back</div>
           </Link>
           {totalChaptersCount === completedChapters.size ? (
             <Link
@@ -89,10 +90,10 @@ const ConfirmChapters = ({ course }: Props) => {
               className="ml-4 font-semibold"
               disabled={loading}
               onClick={() => {
-                setLoading(true)
+                setLoading(true);
                 Object.values(chapterRefs).forEach((ref) => {
-                  ref.current?.triggerLoad()
-                })
+                  ref.current?.triggerLoad();
+                });
               }}
             >
               Generate
@@ -103,7 +104,7 @@ const ConfirmChapters = ({ course }: Props) => {
         <Separator className="flex-[1] dark:bg-zinc-700" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ConfirmChapters
+export default ConfirmChapters;

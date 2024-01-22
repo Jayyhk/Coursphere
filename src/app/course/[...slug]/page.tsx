@@ -1,20 +1,20 @@
-import CourseSideBar from "@/components/CourseSideBar"
-import MainVideoSummary from "@/components/MainVideoSummary"
-import QuizCards from "@/components/QuizCards"
-import { prisma } from "@/lib/db"
-import { ChevronLeft, ChevronRight } from "lucide-react"
-import Link from "next/link"
-import { redirect } from "next/navigation"
-import React from "react"
+import CourseSideBar from "@/components/CourseSideBar";
+import MainVideoSummary from "@/components/MainVideoSummary";
+import QuizCards from "@/components/QuizCards";
+import { prisma } from "@/lib/db";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { redirect } from "next/navigation";
+import React from "react";
 
 type Props = {
   params: {
-    slug: string[]
-  }
-}
+    slug: string[];
+  };
+};
 
 const CoursePage = async ({ params: { slug } }: Props) => {
-  const [courseId, unitIndexParam, chapterIndexParam] = slug
+  const [courseId, unitIndexParam, chapterIndexParam] = slug;
   const course = await prisma.course.findUnique({
     where: { id: courseId },
     include: {
@@ -26,23 +26,23 @@ const CoursePage = async ({ params: { slug } }: Props) => {
         },
       },
     },
-  })
+  });
   if (!course) {
-    return redirect("/gallery")
+    return redirect("/gallery");
   }
-  let unitIndex = parseInt(unitIndexParam)
-  let chapterIndex = parseInt(chapterIndexParam)
+  let unitIndex = parseInt(unitIndexParam);
+  let chapterIndex = parseInt(chapterIndexParam);
 
-  const unit = course.units[unitIndex]
+  const unit = course.units[unitIndex];
   if (!unit) {
-    return redirect("/gallery")
+    return redirect("/gallery");
   }
-  const chapter = unit.chapters[chapterIndex]
+  const chapter = unit.chapters[chapterIndex];
   if (!chapter) {
-    return redirect("/gallery")
+    return redirect("/gallery");
   }
-  const nextChapter = unit.chapters[chapterIndex + 1]
-  const prevChapter = unit.chapters[chapterIndex - 1]
+  const nextChapter = unit.chapters[chapterIndex + 1];
+  const prevChapter = unit.chapters[chapterIndex - 1];
   return (
     <div>
       <CourseSideBar course={course} currentChapterId={chapter.id} />
@@ -101,7 +101,7 @@ const CoursePage = async ({ params: { slug } }: Props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CoursePage
+export default CoursePage;

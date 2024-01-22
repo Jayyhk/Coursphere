@@ -1,17 +1,17 @@
-import { cn } from "@/lib/utils"
-import { Chapter, Course, Unit } from "@prisma/client"
-import Link from "next/link"
-import React from "react"
-import { Separator } from "./ui/separator"
+import { cn } from "@/lib/utils";
+import { Chapter, Course, Unit } from "@prisma/client";
+import Link from "next/link";
+import React from "react";
+import { Separator } from "./ui/separator";
 
 type Props = {
   course: Course & {
     units: (Unit & {
-      chapters: Chapter[]
-    })[]
-  }
-  currentChapterId: string
-}
+      chapters: Chapter[];
+    })[];
+  };
+  currentChapterId: string;
+};
 
 const CourseSideBar = async ({ course, currentChapterId }: Props) => {
   return (
@@ -37,14 +37,14 @@ const CourseSideBar = async ({ course, currentChapterId }: Props) => {
                     {chapter.name}
                   </Link>
                 </div>
-              )
+              );
             })}
             <Separator className="mt-2 text-gray-500 bg-gray-500" />
           </div>
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
-export default CourseSideBar
+export default CourseSideBar;

@@ -1,15 +1,15 @@
 import GalleryCourseCard from "@/components/GalleryCourseCard";
 import { prisma } from "@/lib/db";
 import React from "react";
-import { getAuthSession } from "@/lib/auth"
-import { redirect } from "next/navigation"
+import { getAuthSession } from "@/lib/auth";
+import { redirect } from "next/navigation";
 
-type Props = {}
+type Props = {};
 
 const GalleryPage = async (props: Props) => {
-  const session = await getAuthSession()
+  const session = await getAuthSession();
   if (!session?.user) {
-    return redirect("../")
+    return redirect("../");
   }
   const courses = await prisma.course.findMany({
     where: {
