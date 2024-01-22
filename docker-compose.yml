@@ -1,14 +1,14 @@
 version: '3.8'
 services:
   app:
-    image: coursphere
+    image: openai-demo-app
     build:
       context: ./
       target: production
       dockerfile: Dockerfile
     volumes:
-        - .:/app
-        - /app/node_modules
-        - /app/.next
+        - .:/Coursphere
+        - /Coursphere/node_modules
+        - /Coursphere/.next
     ports:
       - "3000:3000"
