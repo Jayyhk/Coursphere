@@ -4,7 +4,7 @@ services:
     image: coursphere
     build:
       context: ./
-      target: dev
+      target: production
       dockerfile: Dockerfile
     volumes:
         - .:/app
