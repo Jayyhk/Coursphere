@@ -15,5 +15,3 @@ Coursphere is designed to revolutionize the way courseware is created and consum
 - **🧠 Concept Check Quizzes**: Reinforce learning with interactive quizzes that assess understanding and help users solidify their knowledge.
 
 - **📜 YouTube Summaries**: Quick summaries of course content on YouTube provide users with a concise overview, making it easy to review key concepts.
-
-## Getting Started
