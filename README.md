@@ -4,7 +4,7 @@
   <img src="https://i.imgur.com/7p7GE3b.png"/>
 </p>
 
-### Working on redeployment, there is a problem with disk space usage.
+### Working on a redeployment fix
 
 Coursphere is designed to revolutionize the way courseware is created and consumed. This project leverages the capabilities of OpenAI's API for dynamic course content generation, seamlessly integrated with YouTube's API for rich video content. With concept check quizzes and YouTube summaries, Coursphere offers a comprehensive learning experience for users.
 
