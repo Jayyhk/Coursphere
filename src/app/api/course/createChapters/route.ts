@@ -29,7 +29,7 @@ export async function POST(req: Request, res: Response) {
       {
         title: "title of the unit",
         chapters:
-          "an array of chapters, each chapter should have a youtube_search_query and a chapter_title key in the JSON object",
+          "an array of chapters, each chapter should have a youtube_search_query and a chapter_title key in the JSON object. make it adhere to proper json format.",
       }
     );
 
