@@ -29,6 +29,8 @@ COPY . .
 
 #RUN yarn build
 
+ENV NEXT_PRIVATE_STANDALONE true
+
 # If using npm comment out above and use below instead
 RUN npm run build
 
