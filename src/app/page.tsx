@@ -26,7 +26,7 @@ const home = async (props: Props) => {
           {!session?.user && <GetStartedButton />}
         </div>
         <div className="text-zinc-400 text-xs md:text-sm font-normal">
-          No credit card required.
+          By Jake Mallen
         </div>
       </div>
     </div>
