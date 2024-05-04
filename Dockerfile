@@ -19,9 +19,11 @@ RUN \
 
 FROM base AS builder
 
-ENV NEXT_PRIVATE_STANDALONE true
 
 WORKDIR /app
+
+ENV NEXT_PRIVATE_STANDALONE true
+
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
