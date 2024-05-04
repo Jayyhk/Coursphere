@@ -1,6 +1,6 @@
 # Coursphere
 
-*Need to migrate to a new database because PlanetScale removed their free tier :(*
+*\*Need to migrate to a new database because PlanetScale removed their free tier :(*
 
 <p align="center">
   <img src="https://i.imgur.com/7p7GE3b.png"/>
