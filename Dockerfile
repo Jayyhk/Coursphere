@@ -16,7 +16,7 @@ RUN \
   fi
 
 
-# Rebuild the source code only when needed
+
 FROM base AS builder
 
 ENV NEXT_PRIVATE_STANDALONE true
