@@ -26,7 +26,6 @@ ENV NEXT_PRIVATE_STANDALONE true
 
 RUN npm run build
 
-# Production image, copy all the files and run next
 FROM base AS runner
 WORKDIR /app
 
